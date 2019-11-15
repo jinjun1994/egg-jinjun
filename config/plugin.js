@@ -6,4 +6,8 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
+  email: {
+    enable: true,
+    package: 'egg-email',
+  },
 };

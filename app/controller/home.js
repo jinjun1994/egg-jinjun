@@ -28,6 +28,34 @@ class HomeController extends Controller {
       data: data.data,
     };
   }
+  async sendEmail() {
+    const { ctx } = this;
+    const mailOptions = {
+      from: 'jinjun199403@163.com',
+      to: 'jinjun19940001@163.com',
+      subject: 'hello world 我是金俊发送的邮件',
+      html: '<a href = \'link\'>点击链接进行验证</a>',
+    };
+
+    // this.app.email.sendMail(mailOptions, (error, response) => {
+    //   if (error) {
+    //     ctx.body = {
+    //       data: { error },
+    //     };
+    //     console.log('error:', error);
+    //   } else {
+    //     ctx.body = {
+    //       data: { 'email sent: ': response.message },
+    //     };
+    //     console.log('email sent: ' + response.message);
+    //   }
+    //   this.app.email.close();
+    // });
+    const result = await this.app.email.sendMail(mailOptions);
+    ctx.body = {
+      data: result,
+    };
+  }
 }
 
 module.exports = HomeController;

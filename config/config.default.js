@@ -22,7 +22,17 @@ module.exports = appInfo => {
   const userConfig = {
     // myAppName: 'egg',
   };
-
+  exports.email = {
+    client: {
+      host: 'smtp.163.com',
+      secureConnection: true,
+      port: 465,
+      auth: {
+        user: 'jinjun199403',
+        pass: 'jinjun199403sqm',
+      },
+    },
+  };
   return {
     ...config,
     ...userConfig,
